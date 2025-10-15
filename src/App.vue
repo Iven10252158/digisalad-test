@@ -1,17 +1,19 @@
 <script setup>
 import { ref, watch } from 'vue'
-import Logo from '@/assets/logo.svg'
-import Title from '@/assets/title.svg'
-import MenuIcon from '@/assets/menu-icon.svg'
-import WaveLong from '@/assets/wave-long.svg'
-import WaveShort from '@/assets/wave-short.svg'
-import WaveNavy from '@/assets/wave-navy.svg'
-import Background from '@/assets/background.png'
-import Salad from '@/assets/salad.png'
-import Award from '@/assets/award.png'
 import SectionTitle from '@/components/SectionTitle.vue'
 import TheButton from '@/components/TheButton.vue'
 import TheServiceType from '@/components/TheServiceType.vue'
+import TheHeader from '@/components/TheHeader.vue'
+
+import logo from '@/assets/logo.svg'
+import title from '@/assets/title.svg'
+import menuIcon from '@/assets/menu-icon.svg'
+import waveLong from '@/assets/wave-long.svg'
+import waveShort from '@/assets/wave-short.svg'
+import waveNavy from '@/assets/wave-navy.svg'
+import background from '@/assets/background.png'
+import salad from '@/assets/salad.png'
+import award from '@/assets/award.png'
 import uxDesign from '@/assets/service-icons/ux-design.png'
 import uiDesign from '@/assets/service-icons/ui-design.png'
 import websiteDevelopment from '@/assets/service-icons/website-development.png'
@@ -33,6 +35,7 @@ import careers from '@/assets/images/careers.png'
 import insights from '@/assets/images/insights.png'
 import service from '@/assets/images/service.png'
 import carrot from '@/assets/images/carrot.png'
+import cucumber from '@/assets/images/cucumber.png'
 
 
 const servicesData = ref([
@@ -131,54 +134,58 @@ watch(isMenuOpen, (open) => {
 <template>
 
   <main class="relative pb-[90px]">
+      <TheHeader />
+
     <Transition name="menu">
-      <div v-show="isMenuOpen" class="fixed inset-0 z-50 w-full h-screen bg-linear-to-b from-[#585880] to-[#26C6D0] opacity-90">
-        <img class="w-[140px] h-[62px] object-contain mt-[40px] ml-[60px]" :src="Logo" alt="digiSalad" />
-        <button class="cursor-pointer absolute right-[64px] top-12 z-10" type="button" @click="isMenuOpen = false">
+      <div v-show="isMenuOpen" class="fixed inset-0 pb-20 z-50 w-full h-screen overflow-y-auto bg-linear-to-b from-[#585880] to-[#26C6D0] opacity-95">
+        <img class="w-[140px] h-[62px] object-contain mt-5 ml-[60px]" :src="logo" alt="digiSalad" />
+        <button type="button" @click="isMenuOpen = false" class="cursor-pointer absolute right-[32px] top-6 z-10">
           <p class="text-white text-2xl">
             Ｘ
           </p>
         </button>
 
-        <div class="relative pl-[141px] flex flex-wrap justify-center content-center gap-10 -mt-20">
+        <div class="relative flex flex-wrap justify-center items-center content-center gap-x-10">
           <div class="flex flex-col gap-y-10">
             <!-- 1 -->
-            <div class="relative w-[380px] h-[210px] overflow-hidden rounded-[24px]">
+            <div class="relative w-[380px] h-[210px] overflow-hidden rounded-3xl">
               <!-- 背景圖層 -->
               <div
                 class="absolute inset-0 w-full h-full bg-cover bg-center"
-                :style="{ backgroundImage: `url('${about}')` }"
+                :style="{ backgroundImage: `url('${about}')`,  opacity: 0.6 }"
               />
               <div class="absolute inset-0 bg-[#26C6D0]/90 flex justify-center items-center gap-x-[27px]">
                 <img :src="uxDesign" class="w-[42px] h-[62px] object-contain" />
-                <div class="flex flex-col justify-center items-center">
-                  <p class="text-white font-normal tracking-[1.8px]">EMPOWERING BRANDS</p>
-                  <div class="inline-flex items-center">
+                <div class="flex flex-col justify-center items-start">
+                  <p class="text-white font-normal tracking-[1.8px] mb-2">EMPOWERING BRANDS</p>
+                  <div class="flex items-end">
                     <h3 class="uppercase text-white font-extrabold tracking-[2.5px] text-[28px] leading-none">
                       ABOUT US
                     </h3>
-                    <span class="ml-[10px] w-[8px] h-[8px] rounded-full bg-[#EF76A8]"></span>
+                    <span class="ml-2 w-2 h-2 rounded-full bg-[#EE6C8A]"></span>
                   </div>
                 </div>
               </div>
             </div>
 
             <!-- 2 -->
-            <div class="relative w-[380px] h-[320px] overflow-hidden rounded-[24px]">
+            <div class="relative w-[380px] h-[320px] overflow-hidden rounded-3xl">
               <!-- 背景圖層 -->
               <div
                 class="absolute inset-0 w-full h-full bg-cover bg-center"
-                :style="{ backgroundImage: `url('${works}')` }"
+                :style="{ backgroundImage: `url('${works}')`, opacity: 0.3  }"
               />
-              <div class="absolute inset-0 bg-[#EE6C8ACC]/80 flex justify-start items-end gap-x-[27px] px-7 pb-[59px]">
-                <img :src="uiDesign" class="w-[61px] h-[61px] object-contain" />
-                <div class="flex flex-col justify-center items-center">
-                  <p class="text-white font-normal tracking-[1.8px]">CASE STUDIES</p>
-                  <div class="inline-flex items-center">
-                    <h3 class="uppercase text-white font-extrabold tracking-[2.5px] text-[28px] leading-none">
-                      WORKS
-                    </h3>
-                    <span class="ml-[10px] w-[8px] h-[8px] rounded-full bg-[#26C6D0]"></span>
+              <div class="absolute inset-0 bg-[#EE6C8ACC]/80 flex justify-start items-end px-[26px] pb-12">
+                <div class="flex gap-x-5">
+                  <img :src="uiDesign" class="w-[61px] h-[61px] object-contain" />
+                  <div class="flex flex-col justify-center items-center">
+                    <p class="text-white font-normal tracking-[1.8px]">CASE STUDIES</p>
+                    <div class="flex items-end">
+                      <h3 class="uppercase text-white font-extrabold tracking-[2.5px] text-[28px] leading-none">
+                        WORKS
+                      </h3>
+                      <span class="ml-2 w-2 h-2 rounded-full bg-[#26C6D0]"></span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -187,42 +194,39 @@ watch(isMenuOpen, (open) => {
 
           <div class="flex flex-col gap-y-10">
             <!-- 3 -->
-            <div class="relative w-[290px] h-[430px] overflow-hidden rounded-[24px]">
-              <!-- 背景圖層 -->
-              <div
-                class="absolute inset-0 w-full h-full bg-cover bg-center"
-                :style="{ backgroundImage: `url('${careers}')` }"
-              />
-              <div class="absolute inset-0 bg-[#E6A94E]/85 flex flex-col justify-end items-start gap-x-[27px] px-7 pb-[59px]">
-                <img :src="websiteDevelopment" class="block w-[92px] h-[47px] object-contain" />
-                <div class="flex flex-col justify-center items-center">
-                  <p class="text-white font-normal tracking-[1.8px]">BE COOL WITH US</p>
-                  <div class="inline-flex items-center">
-                    <h3 class="uppercase text-white font-extrabold tracking-[2.5px] text-[28px] leading-none">
-                      CAREERS
-                    </h3>
-                    <span class="ml-[10px] w-[8px] h-[8px] rounded-full bg-[#EF76A8]"></span>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <TheCard
+              :bg-image="careers"
+              :icon-src="websiteDevelopment"
+              :width="290"
+              :height="430"
+              :bg-image-opacity="0.6"
+              overlay-color="#E6A94E"
+              :overlay-opacity="0.85"
+              subtitle="BE COOL WITH US"
+              title="CAREERS"
+              dot-color="#EE6C8A"
+              :icon-width="92"
+              :icon-height="47"
+            />
 
             <!-- 4 -->
-            <div class="relative w-[290px] h-[282px] overflow-hidden rounded-[24px]">
+            <div class="relative w-[290px] h-[282px] overflow-hidden rounded-3xl">
               <!-- 背景圖層 -->
               <div
                 class="absolute inset-0 w-full h-full bg-cover bg-center"
-                :style="{ backgroundImage: `url('${insights}')` }"
+                :style="{ backgroundImage: `url('${insights}')`, opacity: 0.5 }"
               />
-              <div class="absolute inset-0 bg-[#26D0A8]/85 flex flex-col justify-end items-start gap-x-[27px] px-7 pb-[59px]">
-                <img :src="mobile" class="block w-[92px] h-[47px] object-contain" />
-                <div class="flex flex-col justify-center items-center">
-                  <p class="text-white font-normal tracking-[1.8px]">OUR STRATEGIES</p>
-                  <div class="inline-flex items-center">
-                    <h3 class="uppercase text-white font-extrabold tracking-[2.5px] text-[28px] leading-none">
-                      INSIGHTS
-                    </h3>
-                    <span class="ml-[10px] w-[8px] h-[8px] rounded-full bg-[#EF76A8]"></span>
+              <div class="absolute inset-0 bg-[#26D0A8]/80 flex flex-col justify-end items-start px-7 pb-12">
+                <div class="flex flex-col items-start gap-y-4">
+                  <img :src="cucumber" class="block w-[25px] h-[79px] object-contain" />
+                  <div class="flex flex-col justify-center gap-y-2">
+                    <p class="text-white font-normal tracking-[1.8px]">OUR STRATEGIES</p>
+                    <div class="flex items-end">
+                      <h3 class="uppercase text-white font-extrabold tracking-[2.5px] text-[28px] leading-none">
+                        INSIGHTS
+                      </h3>
+                      <span class="ml-2 w-2 h-2 rounded-full bg-[#EE6C8A]"></span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -231,42 +235,44 @@ watch(isMenuOpen, (open) => {
 
           <div class="flex flex-col gap-y-10">
             <!-- 5 -->
-            <div class="relative w-[380px] h-[320px] overflow-hidden rounded-[24px]">
+            <div class="relative w-[380px] h-[320px] overflow-hidden rounded-3xl">
               <!-- 背景圖層 -->
               <div
                 class="absolute inset-0 w-full h-full bg-cover bg-center"
                 :style="{ backgroundImage: `url('${service}')` }"
               />
-              <div class="absolute inset-0 bg-[#585880]/85 flex flex-col justify-end items-start gap-x-[27px] px-7 pb-[59px]">
-                <img :src="carrot" class="block w-[92px] h-[47px] object-contain" />
-                <div class="flex flex-col justify-center items-center">
-                  <p class="text-white font-normal tracking-[1.8px]">AREAS OF EXPERTISES</p>
-                  <div class="inline-flex items-center">
-                    <h3 class="uppercase text-white font-extrabold tracking-[2.5px] text-[28px] leading-none">
-                      SERVICES
-                    </h3>
-                    <span class="ml-[10px] w-[8px] h-[8px] rounded-full bg-[#EF76A8]"></span>
+              <div class="absolute inset-0 bg-[#585880]/85 flex flex-col justify-end items-start gap-x-[27px] px-7 pb-12">
+                  <img :src="carrot" class="inline-block w-[36px] h-[67px] mb-[15px] object-contain" />
+                  <div class="flex flex-col justify-center items-start">
+                    <p class="text-white font-normal tracking-[1.8px]">AREAS OF EXPERTISES</p>
+                    <div class="flex items-end ">
+                      <h3 class="uppercase text-white font-extrabold tracking-[2.5px] text-[28px] leading-none">
+                        SERVICES
+                      </h3>
+                      <span class="ml-2 w-2 h-2 rounded-full bg-[#EE6C8A]"></span>
+                    </div>
                   </div>
                 </div>
-              </div>
             </div>
 
             <!-- 6 -->
-            <div class="relative w-[380px] h-[210px] overflow-hidden rounded-[24px] bg-white px-10">
-                <div class="flex flex-col w-[380px] h-[210px] justify-center items-start">
+            <div class="relative w-[380px] h-[210px] overflow-hidden rounded-3xl bg-white px-10">
+                <div class="flex flex-col w-[380px] h-[210px] justify-center items-start gap-y-2">
                   <p class="font-normal tracking-[1.8px]">START YOUR JOURNEY WITH US</p>
-                  <div class="inline-flex items-center">
+                  <div class="flex items-end">
                     <h3 class="text-[#26C6D0] uppercase font-extrabold tracking-[2.5px] text-[28px] leading-none">
                       CONTACT
                     </h3>
-                    <span class="ml-[10px] w-[8px] h-[8px] rounded-full bg-[#EF76A8]"></span>
+                    <span class="ml-2 w-2 h-2 rounded-full bg-[#EE6C8A]"></span>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
         </div>
+      </div>
     </Transition>
+
+
     <!-- Banner -->
     <section class="relative min-h-screen overflow-hidden">
       <!-- 背景影片 -->
@@ -290,27 +296,27 @@ watch(isMenuOpen, (open) => {
             <div class="-rotate-90 origin-left flex items-center gap-3">
             <!-- 跟「文字高度中心」對齊的裝飾線 -->
             <span class="block h-px w-[113px] bg-white"></span>
-            <span class="uppercase tracking-[0.35em] text-sm md:text-base">
+            <span class="uppercase tracking-[0.35em] text-sm">
               DIGITAL AGENCY
             </span>
           </div>
         </div>
 
-        <div class="relative left-[220px]">
-          <img :src="Logo" class="mt-[181px] mb-[34px] w-[198px] h-[88px]" />
-          <img :src="Title" class="w-[605px] h-[210px]" />
+        <div v-if="isMenuOpen === false" class="relative left-[220px]">
+          <img :src="logo" class="mt-[181px] mb-[34px] w-[198px] h-[88px]" />
+          <img :src="title" class="w-[605px] h-[210px]" />
         </div>
 
         <div class="absolute top-10 right-[60px] flex items-center gap-11">
-          <button type="button" class="cursor-pointer rounded-full py-[13px] px-[9px] bg-linear-to-r from-[#4EE5EA] to-[#26D0A8]">
+          <button type="button" class="cursor-pointer rounded-full py-3 px-2 bg-gradient-to-r from-[#4EE5EA] to-[#26D0A8]">
             <p class="text-white text-[14px] font-bold tracking-[1.14px]">START YOUR PROJECT</p>
           </button>
           <button type="button" @click="isMenuOpen = true" class="cursor-pointe w-[30px] h-[22px]">
-            <img :src="MenuIcon" class="w-full h-full" />
+            <img :src="menuIcon" class="w-full h-full" />
           </button>
         </div>
-        <div class="absolute bottom-0 left-1/2 -translate-x-1/2 flex flex-col items-center gap-[11px]">
-          <img :src="Salad" class="w-[65px] h-[65px] object-cover" />
+        <div class="absolute bottom-[75px] left-1/2 -translate-x-1/2 flex flex-col items-center gap-3">
+          <img :src="salad" class="w-[65px] h-[65px] object-cover" />
           <p class="font-bold text-sm text-white tracking-[2px]">TASTE US NOW!</p>
         </div>
       </div>
@@ -320,7 +326,7 @@ watch(isMenuOpen, (open) => {
     <section class="pt-16 relative bg-[#F2F2F2] max-w-[1440px] mx-auto">
       <div class="px-[216px] mb-[70px]">
         <div class="flex flex-col items-center justify-center mb-[70px]">
-          <SectionTitle title="About Digisalad" :wave-img="WaveLong" />
+          <SectionTitle title="About Digisalad" :wave-img="waveLong" />
         </div>
   
         <div class="flex flex-col items-center justify-center mb-[30px]">
@@ -348,7 +354,7 @@ watch(isMenuOpen, (open) => {
         <div class="flex gap-x-[37px] items-start px-[69px]">
           <!-- 左側文字區 -->
           <div class="max-w-[416px]">
-            <SectionTitle title="AWARDS" :wave-img="WaveShort" />
+            <SectionTitle title="AWARDS" :wave-img="waveShort" />
             <p class="mt-[15px] leading-[28px] tracking-[1px] text-[#262626]">
               Cras quis nulla commodo, aliquam lectus sed, blandit augue. Cras ullamcorper bibendum bibendum.
               Duis tincidunt urna non pretium porta. Nam condimentum vitae ligula vel ornare.
@@ -359,10 +365,10 @@ watch(isMenuOpen, (open) => {
 
           <!-- 右側獎項圖 -->
           <div class="flex flex-wrap gap-x-[60px] gap-y-[30px] content-start">
-            <img class="block w-[283px] h-[108px]" :src="Award" alt="亞洲智能應用程式大獎">
-            <img class="block w-[283px] h-[108px]" :src="Award" alt="亞洲智能應用程式大獎">
-            <img class="block w-[283px] h-[108px]" :src="Award" alt="亞洲智能應用程式大獎">
-            <img class="block w-[283px] h-[108px]" :src="Award" alt="亞洲智能應用程式大獎">
+            <img class="block w-[283px] h-[108px]" :src="award" alt="亞洲智能應用程式大獎">
+            <img class="block w-[283px] h-[108px]" :src="award" alt="亞洲智能應用程式大獎">
+            <img class="block w-[283px] h-[108px]" :src="award" alt="亞洲智能應用程式大獎">
+            <img class="block w-[283px] h-[108px]" :src="award" alt="亞洲智能應用程式大獎">
           </div>
         </div>
 
@@ -373,7 +379,7 @@ watch(isMenuOpen, (open) => {
       <section class="w-full rounded-4xl -mt-[216px] bg-[#2AC6D0]">
         <div class="pt-[320px] pb-[443px] w-[1007px] mx-auto">
           <div class="flex flex-col items-center mb-[30px]">
-            <SectionTitle title="OUR INGRADIENTS" :wave-img="WaveNavy" />
+            <SectionTitle title="OUR INGRADIENTS" :wave-img="waveNavy" />
             <p class="mt-[43px] text-center leading-[28px] tracking-[1px] text-white">
               Cras quis nulla commodo, aliquam lectus sed, blandit augue. Cras ullamcorper bibendum bibendum. Duis tincidunt urna non pretium porta. Nam condimentum vitae ligula vel ornare. Phasellus at semper turpis. Nunc eu tellus tortor. Etiam at condimentum nisl, vitae sagittis orci. Donec id dignissim nunc. Donec elit ante, eleifend a dolor et, venenatis facilisis dolor. In feugiat orci odio, sed lacinia sem elementum quis. Aliquam consectetur, eros et vulputate euismod, nunc leo tempor lacus, ac rhoncus neque eros nec lacus. Cras lobortis molestie faucibus.
             </p>
@@ -401,8 +407,8 @@ watch(isMenuOpen, (open) => {
 
         <!-- Intro Card -->
         <section class="absolute -mt-[299px] left-0 w-[1300px]">
-          <div class="w-full h-[598px] rounded-[24px]"
-          :style="{ backgroundImage: `url(${Background})`, backgroundSize: 'cover', backgroundPosition: 'center' }">
+          <div class="w-full h-[598px] rounded-3xl"
+          :style="{ backgroundImage: `url(${background})`, backgroundSize: 'cover', backgroundPosition: 'center' }">
 
             <!-- 內容 -->
             <div class="absolute inset-0 flex items-center justify-center gap-x-[68px] px-2">
@@ -421,7 +427,7 @@ watch(isMenuOpen, (open) => {
               <div class="flex flex-col items-center gap-y-[13px]">
                 <img :src="quote" class="w-[90px] h-[90px]" />
                 <p class="text-white leading-[48px] tracking-[2px] text-[22px] w-[734px] font-[Proxima Nova]">
-                  A great digital work isn’t about designing beautiful pages purely. It is about context - how do we deliver the right experience to the right person at the right time. The most important thing is that your work can engage customers at anytime, anywhere and let users experience an entire amazing digital journey.
+                  A great digital work isn’t about designing beautiful pages purely. It is about context - how do we deliver the <span class="text-">right experience to the right person at the right time</span>. The most important thing is that your work can engage customers at anytime, anywhere and let users experience an entire amazing digital journey.
                 </p>
               </div>
             </div>
@@ -433,13 +439,13 @@ watch(isMenuOpen, (open) => {
 
     <!-- Brand Experience -->
     <section class="flex flex-col items-center gap-y-[54px] mt-[430px]">
-        <SectionTitle class="text-black" title="OUR BRAND EXPERIENCE" :wave-img="WaveLong" :img-width="495" />
+        <SectionTitle class="text-black" title="OUR BRAND EXPERIENCE" :wave-img="waveLong" :img-width="495" />
         <p class="tracking-[1px] text-center leading-[24px] text-[#262626] max-w-[1007px]">
           Cras quis nulla commodo, aliquam lectus sed, blandit augue. Cras ullamcorper bibendum bibendum. Duis tincidunt urna non pretium porta. Nam condimentum vitae ligula vel ornare. Phasellus at semper turpis. Nunc eu tellus tortor. Etiam at condimentum nisl, vitae sagittis orci. Donec id dignissim nunc. Donec elit ante, eleifend a dolor et, venenatis facilisis dolor. In feugiat orci odio, sed lacinia sem elementum quis. Aliquam consectetur, eros et vulputate euismod, nunc leo tempor lacus, ac rhoncus neque eros nec lacus. Cras lobortis molestie faucibus.
         </p>
           <img
             :src="digisaladList"
-            :wave-img="WaveLong"
+            :wave-img="waveLong"
             class="w-[1040px] h-[720px] object-contain"
           />
     </section>
@@ -489,7 +495,7 @@ watch(isMenuOpen, (open) => {
                   </h3>
 
                   <!-- 右側粉紅圓點 -->
-                  <span class="ml-[10px] mb-[10px] w-[10px] h-[10px] rounded-full bg-[#F08AA1]"></span>
+                  <span class="ml-2 mb-[10px] w-[10px] h-[10px] rounded-full bg-[#F08AA1]"></span>
                 </div>
               </h6>
               <p class="text-white leading-[24px] font-normal tracking-[1px]">
