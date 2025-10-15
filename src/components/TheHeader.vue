@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from 'vue'
-import LogoBlue from '@/assets/logo-blue.svg'
+import LogoBlue from '@/assets/Logo-blue.svg'
 
 // 當頁面往下捲動才顯示 Header，停在頂端則隱藏
 const isVisible = ref(false)
