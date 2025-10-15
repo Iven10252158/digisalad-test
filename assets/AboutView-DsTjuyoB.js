@@ -1,0 +1,1 @@
+import{_ as s,c as o,a as t,o as a}from"./index-BU9r4-BU.js";const n={},c={class:"about"};function r(l,e){return a(),o("div",c,[...e[0]||(e[0]=[t("h1",null,"This is an about page",-1),t("h2",{class:"text-3xl text-red-500"},"Hello Tailwind",-1)])])}const _=s(n,[["render",r]]);export{_ as default};
